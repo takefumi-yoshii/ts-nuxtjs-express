@@ -1,0 +1,5 @@
+{
+  "watch": ["server", "routes"],
+  "ext": "ts",
+  "exec": "ts-node -O '{\"module\": \"commonjs\"}' ./server/index.ts"
+}
