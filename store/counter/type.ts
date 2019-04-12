@@ -20,8 +20,8 @@ export interface RG {
 export interface M {
   setCount: { amount: number }
   multi: number
-  increment: unknown
-  decrement: unknown
+  increment: void
+  decrement: void
 }
 export interface RM {
   'counter/setCount': M['setCount']
@@ -34,8 +34,8 @@ export interface RM {
 export interface A {
   asyncSetCount: { amount: number }
   asyncMulti: number
-  asyncIncrement: unknown
-  asyncDecrement: unknown
+  asyncIncrement: void
+  asyncDecrement: void
 }
 export interface RA {
   'counter/asyncSetCount': A['asyncSetCount']
