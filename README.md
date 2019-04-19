@@ -68,7 +68,7 @@ Vuex が自動で付与するであろう名前空間を、正しくマッピン
 ### 2.Store Module にキャストして実装する
 
 `store/counter/index.ts` は見てのとおり、アノテーションがほとんどありません。  
-型情報は`Getters<S, G>`・`Mutations<S, M>`・`Actions<S, A, G, M>` があるのみです。
+型情報は`Getters<S, G>`・`Mutations<S, M>`・`Actions<S, A, G, M>` があるのみです。  
 **このアノテーションにより、全てがキャスト済みの状態となります。**  
 関数ごとのアノテーションは、引数も含めて付与する必要はありません。  
 
@@ -113,7 +113,7 @@ type RootState = Root.S & {
 
 #### 【その他】
 
-`RootGetters`・`RootMutations`・`RootActions` は、`&` で繋ぐだけで Tree構想の考慮は不要です。  
+`RootGetters`・`RootMutations`・`RootActions` は、`&` で繋ぐだけで Tree構造の考慮は不要です。  
 「3.型定義を集約する」は「ライブラリに定義を教え込む」工程であるといえます。  
 **この工程を忘れてしまうと、型参照はできないので注意してください。**
 
