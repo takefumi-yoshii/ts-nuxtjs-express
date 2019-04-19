@@ -63,9 +63,43 @@ Store Module 内部の定義は以上です。
 ### 3.型定義を集約する
 
 SFC や rootXXX に向けて、どんな Module が定義されているのか、  
-`types/vuex/impl.ts` で vuex に型定義を教え込みます。  
-`RootState` は、Tree構造にしたがってキャストします。  
+`types/vuex/impl.ts` で **vuex に型定義を教え込みます。**  
+
+####【RootState】
+
+`RootState` は、Tree構造にしたがってキャストします。 
+たとえば、つぎの様なツリー構造の定義があったとします。
+
+```
+├── counter
+│   ├── type.ts
+│   └── index.ts
+├── type.ts
+├── index.ts
+└── todos
+    ├── type.ts
+    ├── index.ts
+    └── nest
+        ├── type.ts
+        └── index.ts
+```
+
+これを正しく教えこむためには、次のキャストの様になります。
+
+```typescript
+type RootState = Root.S & {
+  counter: Counter.S
+  todos: Todos.S & {
+    nest: TodosNest.S
+  }
+}
+```
+
+#### 【その他】
+
 `RootGetters`・`RootMutations`・`RootActions` は、`&` で繋ぐだけです。
+「3.型定義を集約する」は「ライブラリに定義を教え込む」キャストといえます。
+**この工程を忘れてしまうと、型参照はできないので注意してください。**
 
 ### 4.SFC に型定義を教え込んだ Store をキャストする
 
@@ -77,6 +111,9 @@ SFC や rootXXX に向けて、どんな Module が定義されているのか�
 
 ___
 
-mapHelper 系は依然として推論は届きません。
+SFC の推論が遅延する場合があります。  
+そんな時は、VSCode を再起動してください。  
+
+mapHelper 系は依然として推論は届きません。  
 これについては、引き続き探求する予定です。
 
