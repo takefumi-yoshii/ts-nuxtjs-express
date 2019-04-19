@@ -65,7 +65,7 @@ Store Module 内部の定義は以上です。
 SFC や rootXXX に向けて、どんな Module が定義されているのか、  
 `types/vuex/impl.ts` で **vuex に型定義を教え込みます。**  
 
-####【RootState】
+#### 【RootState】
 
 `RootState` は、Tree構造にしたがってキャストします。 
 たとえば、つぎの様なツリー構造の定義があったとします。
