@@ -37,7 +37,7 @@ ___
 
 ### 1.Store Module の型を定義する
 
-`store/counter/type.ts` に型定義があります。
+`store/counter/type.ts` に型定義があります。  
 これは `store/counter/index.ts` と、root キャストに利用する型定義です。
 
 |型名称|概要|
