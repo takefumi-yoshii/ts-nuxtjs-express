@@ -21,7 +21,7 @@
 `this.$store.getters['']` まで入力したところ、  
 `this.$store.dispatch('')` まで入力したところで入力補完が確認できます。  
 
-getter関数は戻り型が、action関数は payload が推論されていることが確認できます。
+getter関数は戻り型が、action関数は payload 型が推論されていることが確認できます。
 
 ### 3.Context の推論を確認する
 
